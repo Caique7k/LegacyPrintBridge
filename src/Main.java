@@ -1,4 +1,5 @@
 import printer.PrinterService;
+import java.io.File;
 import watcher.FileWatcher;
 
 import javax.print.PrintService;
@@ -8,6 +9,13 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) throws Exception {
+        String path = "C:\\print_capture";
+
+        File folder = new File(path);
+        if (!folder.exists()) {
+            folder.mkdirs();
+            System.out.println("Pasta criada: " + path);
+        }
 
         PrinterService.showPrinters();
 
